@@ -1,0 +1,16 @@
+*
+!.gitignore
+
+!*/
+!*.c
+!*.h
+
+!/build/bootstrap.build
+!/build/root.build
+!*buildfile
+
+!.clang-format
+!LICENSE.md
+!manifest
+!README.md
+!update_format.sh

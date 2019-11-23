@@ -1,0 +1,18 @@
+c.poptions =+ "-I$out_root" "-I$src_root"
+c.coptions  += -g
+
+obja{*}: c.poptions += -DHELLO_STATIC_BUILD
+objs{*}: c.poptions += -DHELLO_SHARED_BUILD
+
+lib{oc}: {h c}{**}
+{
+    c.export.poptions = "-I$out_root" "-I$src_root"
+
+    c.export.poptions += -DHELLO_STATIC
+    c.export.poptions += -DHELLO_SHARED
+}
+
+h{*}:
+{
+  install.subdirs = true
+}

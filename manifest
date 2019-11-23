@@ -1,0 +1,5 @@
+: 1
+name: liboc
+version: 0.1.0
+summary: Overpowered C
+license: MIT

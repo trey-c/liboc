@@ -1,0 +1,6 @@
+c.std = 11
+
+using c
+
+h{*}: extension = h
+c{*}: extension = c
