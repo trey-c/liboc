@@ -23,22 +23,23 @@
 
 #include <liboc/core.h>
 
-int main(int argc, char **argv)
+int main(void)
 {
-    oc_list_t *list = NULL;
-    oc_list_t *found = NULL;
+    oc_hash_table_t *hash_table = NULL;
 
-    list = oc_list_append(list, "aa");
-    list = oc_list_append(list, "bb");
-    list = oc_list_append(list, "cc");
-    list = oc_list_append(list, "dd");
-    list = oc_list_remove(list, "aa");
-    list = oc_list_remove(list, "ee");
+    hash_table = oc_hash_table_new(oc_hash_str, oc_hash_compare_str);
 
-    found = oc_list_find(list, "bb");
+    oc_assert(hash_table != NULL);
 
-    oc_assert(oc_list_length(list) == 3);
-    oc_assert(strcmp((char *)found->data, "bb") == 0);
+    oc_hash_table_insert(hash_table, "akey", "adata");
+    oc_hash_table_insert(hash_table, "bkey", "bdata");
+    oc_hash_table_insert(hash_table, "ckey", "cdata");
 
-    list = oc_list_clear(list);
+    oc_assert(oc_hash_table_length(hash_table) == 3);
+
+    oc_hash_table_remove(hash_table, "bkey");
+
+    oc_assert(oc_hash_table_length(hash_table) == 2);
+
+    return 0;
 }

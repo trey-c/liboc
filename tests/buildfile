@@ -1,8 +1,10 @@
 include ../liboc/
 
-for t: c{*}
+for t: c{**.test.c}
 {
-    exe{$name($t)}: {$t} ../liboc/lib{oc}
+    ./: exe{$name($t)}: $t 
+
+    exe{$name($t)}: ../liboc/lib{oc}
     {
         test = true
         install = false

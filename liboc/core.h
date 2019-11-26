@@ -27,3 +27,4 @@
 #include <liboc/object.h>
 #include <liboc/type.h>
 #include <liboc/utils.h>
+#include <liboc/hash.h>

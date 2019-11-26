@@ -37,9 +37,6 @@ static int some_func_derived(void)
     return 2;
 }
 
-/********************/
-/* BASE HEADER FILE */
-/********************/
 OC_DECLARE_TYPE(test_base, TEST_BASE, oc_object)
 
 struct test_base {
@@ -56,9 +53,6 @@ struct test_base_class {
 
 test_base_t *test_base_new(void);
 
-/********************/
-/* BASE SOURCE FILE */
-/********************/
 OC_DEFINE_TYPE(test_base, OC_OBJECT_TYPE)
 
 static void test_base_class_init(test_base_class_t *klass)
@@ -82,9 +76,6 @@ test_base_t *test_base_new(void)
     return oc_object_new(TEST_BASE_TYPE());
 }
 
-/***********************/
-/* DERIVED HEADER FILE */
-/***********************/
 OC_DECLARE_TYPE(test_derived, TEST_DERIVED, test_base)
 
 struct test_derived {
@@ -97,9 +88,6 @@ struct test_derived_class {
 
 test_derived_t *test_derived_new(void);
 
-/***********************/
-/* DERIVED SOURCE FILE */
-/***********************/
 OC_DEFINE_TYPE(test_derived, TEST_BASE_TYPE)
 
 static void test_derived_class_init(test_derived_class_t *klass)
@@ -125,9 +113,6 @@ test_derived_t *test_derived_new(void)
     return oc_object_new(TEST_DERIVED_TYPE());
 }
 
-/*************/
-/* MAIN FILE */
-/*************/
 int main(int argc, char **argv)
 {
     test_base_t *base = test_base_new();
